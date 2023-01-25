@@ -10,7 +10,6 @@ public class Slider : MonoBehaviour
     //slider
     public Slider reticleSlider;
 
-    [SerializeField] private TMP_InputField inputControl;
     [SerializeField] private TMP_Text textToShow;
     [SerializeField] private Image reticle;
 
@@ -19,7 +18,7 @@ public class Slider : MonoBehaviour
     private void Start()
     {
         reticleSlider = GetComponentInChildren<Slider>();
-        inputControl = GetComponentInChildren<TMP_InputField>();
+
         textToShow = GetComponentInChildren<TMP_Text>();
         crosshairDim = reticle.rectTransform;
     }

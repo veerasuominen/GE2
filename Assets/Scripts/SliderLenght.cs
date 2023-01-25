@@ -8,10 +8,8 @@ using Unity.VisualScripting;
 public class SliderLenght : MonoBehaviour
 {
     [SerializeField] private Slider lenghtSlider;
-    [SerializeField] private TMP_Text label;
     [SerializeField] private TMP_Text textToShow;
 
-    [SerializeField] private Image reticle;
     [SerializeField] private Image crosshairTop;
     [SerializeField] private Image crosshairBottom;
     [SerializeField] private Image crosshairRight;

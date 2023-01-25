@@ -11,6 +11,7 @@ public class SliderLenght : MonoBehaviour
     [SerializeField] private TMP_Text label;
     [SerializeField] private TMP_Text textToShow;
 
+    [SerializeField] private Image reticle;
     [SerializeField] private Image crosshairTop;
     [SerializeField] private Image crosshairBottom;
     [SerializeField] private Image crosshairRight;
@@ -20,15 +21,16 @@ public class SliderLenght : MonoBehaviour
 
     private void Start()
     {
-        lenghtSlider = GetComponent<Slider>();
-        textToShow = GetComponentInChildren<TMP_Text>();
+        //lenghtSlider = GetComponent<Slider>();
+        //textToShow = GetComponentInChildren<TMP_Text>();
         crosshairLenghtRect = crosshairTop.rectTransform;
     }
 
     public void ChangeSomeValue(float value)
     {
         textToShow.text = value.ToString();
+
+        crosshairTop.rectTransform.anchorMax = crosshairTop.transform.localPosition;
         crosshairLenghtRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, value);
-        crosshairLenghtRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, value);
     }
 }

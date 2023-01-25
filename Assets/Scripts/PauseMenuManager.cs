@@ -48,19 +48,18 @@ public class PauseMenuManager : MonoBehaviour
         PauseMenu.SetActive(true);
         IsPaused = true;
         Time.timeScale = 0;
-        player.SetActive(false);
+        player.GetComponent<PlayerMovement>().enabled = false;
     }
 
     public void Resume()
-    {   
+    {   Debug.Log("resumed");
         IsPaused = false;
         crosshair_GO.SetActive(true);
-        Debug.Log("resumed");
         PauseMenu.SetActive(false);
-        settingMenu.SetActive(false);        
-        player.GetComponent<CharacterController>().enabled = true;
+        settingMenu.SetActive(false);
+        player.GetComponent<PlayerMovement>().enabled = true;
         Time.timeScale = 1;
-        player.SetActive(true);
+        
     }
 
     public void Settings()

@@ -65,6 +65,7 @@ public class PauseMenuManager : MonoBehaviour
 
     public void Settings()
     {
+        crosshair_GO.SetActive(true);
         Debug.Log("settings");
         IsPaused = true;
         PauseMenu.SetActive(false);

@@ -8,29 +8,60 @@ using Unity.VisualScripting;
 
 public class SettingsManager : MonoBehaviour
 {
+    public TMP_Text textToShowLenght;
+    public TMP_Text textToShowWidth;
+
     public RectTransform top;
     public RectTransform bottom;
     public RectTransform left;
     public RectTransform right;
 
     public float valueY = 10;
-    public TMP_Text textToShow;
+    public float valueX = 2;
 
-    public void crosshairlenghtPlus()
+    private void Start()
     {
-        textToShow.text = valueY.ToString();
-
-        top.transform.Translate(Vector3.right);
-        top.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, valueY++);
-
-        bottom.transform.Translate(Vector3.left);
-        bottom.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, valueY++);
     }
 
-    public void crosshairlenghtMinus()
+    private void Update()
     {
-        textToShow.text = valueY.ToString();
-        top.transform.Translate(Vector3.left / 2);
-        top.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, valueY--);
+        textToShowLenght.text = valueY.ToString();
+        textToShowWidth.text = valueX.ToString();
+    }
+
+    public void CrosshairlenghtPlus()
+    {
+        valueY = valueY + 2;
+        top.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, valueY);
+        bottom.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, valueY);
+        left.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, valueY);
+        right.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, valueY);
+    }
+
+    public void CrosshairlenghtMinus()
+    {
+        valueY = valueY - 2;
+        top.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, valueY);
+        bottom.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, valueY);
+        right.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, valueY);
+        left.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, valueY);
+    }
+
+    public void CrosshairWidthPlus()
+    {
+        valueX++;
+        top.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, valueX);
+        bottom.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, valueX);
+        left.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, valueX);
+        right.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, valueX);
+    }
+
+    public void CrosshairWidthMinus()
+    {
+        valueX--;
+        top.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, valueX);
+        bottom.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, valueX);
+        left.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, valueX);
+        right.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, valueX);
     }
 }

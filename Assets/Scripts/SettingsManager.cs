@@ -10,18 +10,19 @@ public class SettingsManager : MonoBehaviour
 {
     public TMP_Text textToShowLenght;
     public TMP_Text textToShowWidth;
+    public TMP_Text textToShowOffset;
 
     public RectTransform top;
     public RectTransform bottom;
     public RectTransform left;
     public RectTransform right;
+    public Image reticle;
 
     public float valueY = 10;
     public float valueX = 2;
-
-    private void Start()
-    {
-    }
+    public float offset = 3;
+    public Vector2 reticleSize;
+    public float reticleFloat = 1;
 
     private void Update()
     {
@@ -63,5 +64,35 @@ public class SettingsManager : MonoBehaviour
         bottom.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, valueX);
         left.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, valueX);
         right.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, valueX);
+    }
+
+    public void OffsetPlus()
+    {
+        offset++;
+        top.transform.Translate(Vector3.up);
+        bottom.transform.Translate(Vector3.down);
+        left.transform.Translate(Vector3.right);
+        right.transform.Translate(Vector3.left);
+    }
+
+    public void OffsetMinus()
+    {
+        offset--;
+        top.transform.Translate(Vector3.down);
+        bottom.transform.Translate(Vector3.up);
+        left.transform.Translate(Vector3.left);
+        right.transform.Translate(Vector3.right);
+    }
+
+    public void ReticlePlus()
+    {
+        reticleFloat++;
+        reticle.rectTransform.localScale = new Vector2(reticleFloat, reticleFloat);
+    }
+
+    public void ReticleMinus()
+    {
+        reticleFloat--;
+        reticle.rectTransform.localScale = new Vector2(reticleFloat, reticleFloat);
     }
 }

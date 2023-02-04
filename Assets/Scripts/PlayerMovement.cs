@@ -3,9 +3,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public CharacterController controller;
-    public float speed = 10;
-    public float gravity = -9.81f;
-    public float jumpHeight = 3;
+    public float speed = 10, jumpHeight = 3, gravity = -9.81f;
 
     public Transform GroundCheck;
     public float groundDistance = 0.4f;

@@ -8,8 +8,6 @@ public class MouseLook : MonoBehaviour
     public Transform playerBody;
     private float xRotation = 0;
 
-    private Gun gunScript;
-
     //recoil values
     public Vector3 recoilUp;
 
@@ -32,8 +30,6 @@ public class MouseLook : MonoBehaviour
 
         transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
         playerBody.Rotate(Vector3.up * mouseX);
-
-        
     }
 
     public void AddRecoild()

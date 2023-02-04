@@ -8,21 +8,12 @@ using Unity.VisualScripting;
 
 public class SettingsManager : MonoBehaviour
 {
-    public TMP_Text textToShowLenght;
-    public TMP_Text textToShowWidth;
-    public TMP_Text textToShowOffset;
+    public TMP_Text textToShowLenght, textToShowWidth, textToShowOffset;
 
-    public RectTransform top;
-    public RectTransform bottom;
-    public RectTransform left;
-    public RectTransform right;
+    public RectTransform top, bottom, right, left;
+    public float valueY = 10, valueX = 2, offset = 3, reticleFloat = 1;
     public Image reticle;
-
-    public float valueY = 10;
-    public float valueX = 2;
-    public float offset = 3;
     public Vector2 reticleSize;
-    public float reticleFloat = 1;
 
     private void Update()
     {

@@ -3654,7 +3654,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1458673119
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3932,14 +3932,14 @@ MonoBehaviour:
   textToShowOffset: {fileID: 0}
   top: {fileID: 1879648045}
   bottom: {fileID: 1727879993}
-  left: {fileID: 1284196668}
   right: {fileID: 1207110671}
-  reticle: {fileID: 2145213219}
+  left: {fileID: 1284196668}
   valueY: 10
   valueX: 2
   offset: 3
-  reticleSize: {x: 1, y: 1}
   reticleFloat: 1
+  reticle: {fileID: 2145213219}
+  reticleSize: {x: 1, y: 1}
 --- !u!1 &1558146774
 GameObject:
   m_ObjectHideFlags: 0
@@ -4280,7 +4280,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1609698215727544338, guid: 0bd8c6a559e77f64883292ecd2aa3954, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1609698215727544338, guid: 0bd8c6a559e77f64883292ecd2aa3954, type: 3}
       propertyPath: m_AnchorMax.x

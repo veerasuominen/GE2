@@ -16,10 +16,7 @@ public class Gun : MonoBehaviour
 
     public ParticleSystem muzzleFlash;
     public AudioSource ak;
-    public GameObject player;
-    public GameObject bullet;
-    public GameObject bulletSpawner;
-
+    public GameObject player, bullet, bulletSpawner;
     public bool shot;
 
     // Update is called once per frame

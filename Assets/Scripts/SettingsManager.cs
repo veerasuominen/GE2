@@ -4,21 +4,23 @@ using UnityEngine;
 using TMPro;
 
 using UnityEngine.UI;
-using Unity.VisualScripting;
 
 public class SettingsManager : MonoBehaviour
 {
-    public TMP_Text textToShowLenght, textToShowWidth, textToShowOffset;
-
+    public TMP_Text textToShowLenght, textToShowWidth, textToShowOffset, textToShowReticle;
     public RectTransform top, bottom, right, left;
     public float valueY = 10, valueX = 2, offset = 3, reticleFloat = 1;
     public Image reticle;
-    public Vector2 reticleSize;
+    [HideInInspector] public Vector2 reticleSize;
+    public Outline topO, bottomO, rightO, leftO, reticleO;
+    public bool outlineSwitch;
 
     private void Update()
     {
         textToShowLenght.text = valueY.ToString();
         textToShowWidth.text = valueX.ToString();
+        textToShowOffset.text = offset.ToString();
+        textToShowReticle.text = reticleFloat.ToString();
     }
 
     public void CrosshairlenghtPlus()
@@ -85,5 +87,27 @@ public class SettingsManager : MonoBehaviour
     {
         reticleFloat--;
         reticle.rectTransform.localScale = new Vector2(reticleFloat, reticleFloat);
+    }
+
+    public void OutlinePlus()
+    {
+        if (outlineSwitch == false)
+        {
+            outlineSwitch = true;
+            topO.GetComponent<Outline>().enabled = true;
+            bottomO.GetComponent<Outline>().enabled = true;
+            leftO.GetComponent<Outline>().enabled = true;
+            rightO.GetComponent<Outline>().enabled = true;
+            reticleO.GetComponent<Outline>().enabled = true;
+        }
+        else if (outlineSwitch == true)
+        {
+            outlineSwitch = false;
+            topO.GetComponent<Outline>().enabled = false;
+            bottomO.GetComponent<Outline>().enabled = false;
+            leftO.GetComponent<Outline>().enabled = false;
+            rightO.GetComponent<Outline>().enabled = false;
+            reticleO.GetComponent<Outline>().enabled = false;
+        }
     }
 }

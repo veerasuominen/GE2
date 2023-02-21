@@ -10,9 +10,9 @@ public class Gun : MonoBehaviour
     public float bulletSpeed = 10f;
     public float range = 100f;
     public float fireRate = 10f;
-    private float nextTimeToFire = 0f;
+    private float nextTimeToFire = 0.5f;
     public float impactForce = 50f;
-    public float spread = 1;
+    public float bulletSpread = 1;
     public bool shooting;
 
     //for reloading
@@ -27,7 +27,7 @@ public class Gun : MonoBehaviour
 
     public ParticleSystem muzzleFlash;
     public AudioSource ak;
-    public GameObject player, bullet, bulletSpawner, impactEffect;
+    public GameObject player, bullet, bulletSpawner, impactEffect, rotateAround;
     public bool shot;
 
     private void Start()
@@ -62,12 +62,14 @@ public class Gun : MonoBehaviour
     private void Reload()
     {
         Invoke("ReloadFinished", reloadTime);
+        gameObject.SetActive(false);
     }
 
     private void ReloadFinished()
     {
         bulletsShot = 0;
         bulletsLeft = magazineSize;
+        gameObject.SetActive(true);
     }
 
     private void Shoot()
@@ -101,8 +103,8 @@ public class Gun : MonoBehaviour
 
             Vector3 directionWithoutSpread = targetPoint - bulletSpawner.transform.position;
 
-            float spreadX = Random.Range(-spread, spread);
-            float spreadY = Random.Range(-spread, spread);
+            float spreadX = Random.Range(-bulletSpread, bulletSpread);
+            float spreadY = Random.Range(-bulletSpread, bulletSpread);
 
             Vector3 directionWithSpread = directionWithoutSpread + new Vector3(spreadX, spreadY, 0);
 

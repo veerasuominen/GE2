@@ -22,7 +22,7 @@ public class Gun : MonoBehaviour
     public float reloadTime = 3f;
     public bool reloading;
 
-    //ojects
+    //objects
     public Camera fpsCam;
 
     public ParticleSystem muzzleFlash;
@@ -40,9 +40,9 @@ public class Gun : MonoBehaviour
     {
         if (Input.GetButton("Fire1") && Time.time >= nextTimeToFire && bulletsShot < magazineSize)
         {
+            
             nextTimeToFire = Time.time + 1f / fireRate;
             Shoot();
-            shooting = true;
         }
         else shooting = false;
 
@@ -77,18 +77,19 @@ public class Gun : MonoBehaviour
         //updates mag info
         bulletsShot++;
         bulletsLeft--;
+        shooting = true;
 
         Vector3 targetPoint;
         Ray bulletRay;
         RaycastHit hit;
 
-        //plays muzzleflash and soundeffect when method is called
+        //plays muzzleFlash and soundEffect when method is called
         muzzleFlash.Play();
         ak.Play();
 
         bulletRay = fpsCam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
 
-        //shoots a raycast forward from camera postion, sets a range
+        //shoots a raycast forward from camera position, sets a range
         if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
         {
             //sets targetpoint to be raycasts hitpoint

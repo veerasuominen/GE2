@@ -25,7 +25,7 @@ public class Recoil : MonoBehaviour
         currentRotation = Vector3.Lerp(currentRotation, targetRotation, snappiness * Time.fixedDeltaTime);
         transform.localRotation = Quaternion.Euler(currentRotation);
 
-        if (gunScript.shot == true)
+        if (gunScript.shooting == true)
         {
             RecoilMethod();
         }

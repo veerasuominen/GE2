@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using UnityEngine.UIElements;
 
 public class HealthBarUI : MonoBehaviour
 {
-    public Slider slider;
+    public Slider sliderControl;
 
-    public void SetHealth(int health)
+    private void Start()
     {
+        sliderControl = GetComponentInChildren<Slider>();
     }
 }

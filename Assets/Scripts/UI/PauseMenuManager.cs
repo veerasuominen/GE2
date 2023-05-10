@@ -6,6 +6,7 @@ public class PauseMenuManager : MonoBehaviour
 {
     //used gameobjects
     [SerializeField] private GameObject PauseMenu;
+
     [SerializeField] private GameObject settingMenu;
     [SerializeField] private GameObject crosshair_GO;
     [SerializeField] private GameObject player;
@@ -14,10 +15,6 @@ public class PauseMenuManager : MonoBehaviour
     [SerializeField] private bool IsPaused;
 
     // Start is called before the first frame update
-    private void Start()
-    {
-        DontDestroyOnLoad(gameObject);
-    }
 
     private void Update()
     {
@@ -52,14 +49,14 @@ public class PauseMenuManager : MonoBehaviour
     }
 
     public void Resume()
-    {   Debug.Log("resumed");
+    {
+        Debug.Log("resumed");
         IsPaused = false;
         crosshair_GO.SetActive(true);
         PauseMenu.SetActive(false);
         settingMenu.SetActive(false);
         player.GetComponent<PlayerMovement>().enabled = true;
         Time.timeScale = 1;
-        
     }
 
     public void Settings()

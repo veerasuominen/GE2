@@ -1,10 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class Target : MonoBehaviour
+public class PlayerHealth : MonoBehaviour
 {
-    public float health = 50;
+    public float health = 100;
+    public float amount = 10;
+
+    private void OnTriggerEnter(Collider other)
+    {
+        TakeDamage(amount);
+    }
 
     public void TakeDamage(float amount)
     {
@@ -17,6 +24,6 @@ public class Target : MonoBehaviour
 
     private void Die()
     {
-        Destroy(gameObject);
+        SceneManager.LoadScene(0);
     }
 }
